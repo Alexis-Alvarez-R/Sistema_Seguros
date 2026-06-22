@@ -20,7 +20,7 @@ Sigue estos pasos en orden para configurar el entorno y ejecutar la API:
 ## 1. Clonar el Repositorio
 Abre tu terminal favorita (Git Bash, CMD o PowerShell), navega a tu carpeta de proyectos y ejecuta:
 ```
-git clone
+git clone https://github.com/Alexis-Alvarez-R/Sistema_Seguros.git
 ```
 ## 2. Configurar la Cadena de Conexión
 Por motivos de seguridad y flexibilidad, el proyecto está configurado para conectarse a la base de datos local utilizando la Autenticación de Windows.
