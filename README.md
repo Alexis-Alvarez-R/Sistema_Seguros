@@ -68,6 +68,12 @@ O simplemente presiona F5 (o el botón de Play) dentro de Visual Studio 2022.
 
 Se abrira el swagger en el cual se podran probar los enpoint.
 
+## Pruebas con Postman
+
+En el correo de entrega se adjunta la colección de Postman (`.json`) con los endpoints listos para probar. 
+
+* Asegúrarse de cambiar el puerto en tu Postman por el puerto local que te asigne `dotnet run` (por ejemplo: `https://localhost:7123` o `http://localhost:5123`).
+
 
 
 
