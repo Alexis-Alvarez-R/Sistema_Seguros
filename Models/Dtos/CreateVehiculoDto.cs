@@ -5,14 +5,17 @@ namespace Sistema_Emision_Seguros.Models.Dtos
     public class CreateVehiculoDto
     {
         [Required(ErrorMessage = "La placa es obligatoria.")]
+        [MinLength(5)]
         [MaxLength(50)]
         public string Placa { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "La marca es obligatoria.")]
+        [MinLength(3)]
         [MaxLength(50)]
         public string Marca { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El modelo es obligatorio.")]
+        [MinLength(3)]
         [MaxLength(50)]
         public string Modelo { get; set; } = string.Empty;
 

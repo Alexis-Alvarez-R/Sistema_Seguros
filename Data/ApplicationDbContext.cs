@@ -28,7 +28,11 @@ namespace Sistema_Emision_Seguros.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            
+
+           modelBuilder.Entity<Vehiculo>()
+            .HasIndex(v => v.Placa)
+            .IsUnique();
+
             modelBuilder.Entity<PolizaCobertura>()
                 .HasKey(pc => new { pc.IdPoliza, pc.IdCobertura });
 

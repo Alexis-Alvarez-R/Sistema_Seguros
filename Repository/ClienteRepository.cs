@@ -32,32 +32,12 @@ namespace Sistema_Emision_Seguros.Repository
         }
 
 
-        //------
-
-        public Task<bool> CreateCliente(Cliente cliente)
+        public async Task<Cliente?> GetCliente(int idCliente)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> DeleteCliente(Cliente cliente)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Cliente?> GetCliente(int idCliente)
-        {
-            throw new NotImplementedException();
+            return await _db.Clientes.FirstOrDefaultAsync(cliente => cliente.IdCliente == idCliente);
         }
 
 
-        public Task<bool> Save()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> UpdateCliente(Cliente cliente)
-        {
-            throw new NotImplementedException();
-        }
+  
     }
 }

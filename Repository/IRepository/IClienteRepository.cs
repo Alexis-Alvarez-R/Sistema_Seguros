@@ -12,12 +12,6 @@ namespace Sistema_Emision_Seguros.Repository.IRepository
 
         Task <bool> ClienteExisteByIdentificacion(string identificacion);
 
-        Task<bool> CreateCliente(Cliente cliente);
-
-        Task<bool> UpdateCliente(Cliente cliente);
-
-        Task<bool> DeleteCliente(Cliente cliente);
-
-        Task<bool> Save();
+ 
     }
 }

@@ -17,6 +17,10 @@ namespace Sistema_Emision_Seguros.Repository.IRepository
 
         Task<bool> DeletePoliza(Poliza poliza);
 
+        Task LimpiarCoberturasPoliza(int idPoliza);
+
+        Task<bool> ExisteVehiculoConPlaca(string placa);
+
         Task<bool> Save();
     }
 }

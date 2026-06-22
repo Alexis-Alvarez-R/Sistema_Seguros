@@ -33,7 +33,7 @@ namespace Sistema_Emision_Seguros.Controllers
         {
             if (polizaCreateDto == null)
             {
-                ModelState.AddModelError("ValidationError", "El cuerpo de la solicitud no puede estar vacío.");
+                ModelState.AddModelError("ValidationError", "El cuerpo de la solicitud no puede estar vacio.");
                 return BadRequest(ModelState);
             }
 
@@ -43,7 +43,7 @@ namespace Sistema_Emision_Seguros.Controllers
 
                 if (polizaDto == null)
                 {
-                    return StatusCode(500, "Error interno al procesar la emisión.");
+                    return StatusCode(500, "Error interno al procesar la emision.");
                 }
 
                 return CreatedAtRoute("GetPoliza", new { idPoliza = polizaDto.IdPoliza }, polizaDto);
@@ -79,12 +79,62 @@ namespace Sistema_Emision_Seguros.Controllers
             if (poliza == null)
             {
          
-                return NotFound($"La póliza con ID {idPoliza} no fue encontrada.");
+                return NotFound($"La poliza con ID {idPoliza} no fue encontrada.");
             }
 
             var polizaDto = _mapper.Map<PolizaDto>(poliza);
 
             return Ok(polizaDto);
+        }
+
+
+        [HttpPut("{idPoliza:int}", Name = "UpdatePoliza")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
+        public async Task<IActionResult> UpdatePoliza(int idPoliza, [FromBody] UpdatePolizaDto updateDto)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            try
+            {
+                var polizaActualizada = await _polizaService.UpdatePoliza(idPoliza, updateDto);
+
+                if (polizaActualizada == null)
+                {
+                    return NotFound($"No se encontro ninguna poliza con el ID {idPoliza}");
+                } 
+                
+
+                return Ok(polizaActualizada); 
+            }
+            catch (ArgumentException ex)
+            {
+                ModelState.AddModelError("ErrorValidacion", ex.Message);
+                return BadRequest(ModelState);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Ocurrio un error interno en el servidor al actualizar la poliza.");
+            }
+        }
+
+ 
+        [HttpDelete("{idPoliza:int}", Name = "DeletePoliza")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> DeletePoliza(int idPoliza)
+        {
+            try
+            {
+                bool eliminado = await _polizaService.DeletePoliza(idPoliza);
+                if (!eliminado) return NotFound($"No se pudo encontrar o eliminar la poliza con ID {idPoliza}");
+
+                return NoContent(); 
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Ocurrio un error interno en el servidor al intentar borrar la poliza.");
+            }
         }
     }
 }
