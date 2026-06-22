@@ -6,19 +6,19 @@ Este es el Backend del Sistema de Emisión de Seguros desarrollado en **.NET 8**
 
 ## Requisitos Previos
 
-Antes de comenzar, asegúrate de tener instalado lo siguiente en tu equipo:
+Antes de comenzar, asegúrarse de tener instalado lo siguiente en su equipo:
 * **SDK de .NET 8** (Versión 8.0 o superior)
 * **SQL Server** (Express o LocalDB)
 * **Visual Studio 2022** (con la carga de trabajo *Desarrollo de ASP.NET y web*) o **VS Code**.
 
 ---
 
-##  Pasos para Instalar y Correr el Proyecto Locamente
+##  Pasos para Instalar y Correr el Proyecto Localmente
 
 Sigue estos pasos en orden para configurar el entorno y ejecutar la API:
 
 ## 1. Clonar el Repositorio
-Abre tu terminal favorita (Git Bash, CMD o PowerShell), navega a tu carpeta de proyectos y ejecuta:
+Abre tu terminal favorita, navega a tu carpeta de proyectos y ejecuta:
 ```
 git clone https://github.com/Alexis-Alvarez-R/Sistema_Seguros.git
 ```
