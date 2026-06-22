@@ -1,0 +1,6 @@
+@Sistema_Emision_Seguros_HostAddress = http://localhost:5152
+
+GET {{Sistema_Emision_Seguros_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
