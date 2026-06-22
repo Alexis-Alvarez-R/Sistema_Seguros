@@ -37,7 +37,5 @@ namespace Sistema_Emision_Seguros.Repository
             return await _db.Clientes.FirstOrDefaultAsync(cliente => cliente.IdCliente == idCliente);
         }
 
-
-  
     }
 }

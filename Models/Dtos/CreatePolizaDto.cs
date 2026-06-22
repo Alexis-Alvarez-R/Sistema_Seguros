@@ -15,6 +15,7 @@ namespace Sistema_Emision_Seguros.Models.Dtos
         public List<int> CoberturasIds { get; set; } = [];
 
         [Required(ErrorMessage = "La suma asegurada es obligatoria.")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "La suma asegurada debe ser un monto mayor a cero.")]
         public decimal SumaAsegurada { get; set; }
     }
 }

@@ -36,6 +36,11 @@ namespace Sistema_Emision_Seguros.Service
                 throw new ArgumentException($"El vehiculo con la placa '{createPolizaDto.Vehiculo.Placa}' ya tiene una poliza vigente en el sistema.");
             }
 
+            if (createPolizaDto.SumaAsegurada <= 0)
+            {
+                throw new ArgumentException("La suma asegurada no puede ser cero ni un valor negativo.");
+            }
+
             var poliza = _mapper.Map<Poliza>(createPolizaDto);
             poliza.NumeroPoliza = $"POL-{DateTime.Now:yyyyMMddHHmmss}";
             poliza.FechaEmision = DateTime.Now;
@@ -70,6 +75,11 @@ namespace Sistema_Emision_Seguros.Service
             if (updatePolizaDto.CoberturasIds == null || !updatePolizaDto.CoberturasIds.Any())
             {
                 throw new ArgumentException("La poliza debe incluir al menos una cobertura valida. No se permite dejar la lista vacia.");
+            }
+
+            if (updatePolizaDto.SumaAsegurada <= 0)
+            {
+                throw new ArgumentException("La suma asegurada no puede ser cero ni un valor negativo.");
             }
 
             var polizaExistente = await _polizaRepository.GetPoliza(idPoliza);

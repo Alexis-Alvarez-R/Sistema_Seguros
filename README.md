@@ -25,14 +25,15 @@ git clone https://github.com/Alexis-Alvarez-R/Sistema_Seguros.git
 ## 2. Configurar la Cadena de Conexión
 Por motivos de seguridad y flexibilidad, el proyecto está configurado para conectarse a la base de datos local utilizando la Autenticación de Windows.
 
-Abre el archivo appsettings.json ubicado en la raíz del proyecto web.
+Abre el archivo "appsettings.json" ubicado en la raíz del proyecto.
 
 Modifica la propiedad ConexionSql con el nombre de tu servidor local de SQL Server:
 
+```
   "ConnectionStrings": {
     "ConexionSql": "Server=TU_SERVER;Database=SistemaSegurosLAFISE;Trusted_Connection=True;TrustServerCertificate=True;"
   },
-
+```
 
 ## 3. Restaurar los Paquetes NuGet
 Para descargar e instalar todas las dependencias del proyecto (como Entity Framework y AutoMapper), ejecuta el siguiente comando en la terminal:
@@ -51,7 +52,7 @@ PowerShell:
 ```
 Update-Database
 ```
-Desde la Terminal de Comandos estándar:
+O Desde la Terminal de Comandos estándar:
 ```
 dotnet ef database update
 ```
@@ -64,5 +65,9 @@ Una vez configurada la base de datos, inicia el servidor web de desarrollo corri
 dotnet run
 ```
 O simplemente presiona F5 (o el botón de Play) dentro de Visual Studio 2022.
+
+Se abrira el swagger en el cual se podran probar los enpoint.
+
+
 
 
